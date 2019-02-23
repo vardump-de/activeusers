@@ -1,0 +1,26 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * activeusers plugin for Craft CMS
+ *
+ * ActiveusersWidget Widget Settings
+ *
+ * @author    vardump.de
+ * @copyright Copyright (c) 2019 vardump.de
+ * @link      https://vardump.de
+ * @package   Activeusers
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("\\vardump\\activeusers\\assetbundles\\activeuserswidgetwidget\\ActiveusersWidgetWidgetAsset") %}
+
+{{ forms.textField({
+    label: 'Message'|t('activeusers'),
+    instructions: 'Message if nobody is logged in'|t('activeusers'),
+    id: 'message',
+    name: 'message',
+    value: widget['message']})
+}}

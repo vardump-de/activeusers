@@ -1,0 +1,33 @@
+{# @var craft \craft\web\twig\variables\CraftVariable #}
+{#
+/**
+ * activeusers plugin for Craft CMS
+ *
+ * ActiveusersWidget Widget Body
+ *
+ * @author    vardump.de
+ * @copyright Copyright (c) 2019 vardump.de
+ * @link      https://vardump.de
+ * @package   Activeusers
+ * @since     1.0.0
+ */
+#}
+{% if (userData) %}
+    <div class="activeusers_container">
+        <table class="data fullwidth">
+            <tbody>
+            {% for user in userData %}
+                <tr>
+                    <td>{{ user.firstName }} {{ user.lastName }} <span
+                                class="light">({{ user.username }})</span></td>
+                    <td>
+                        <span class="light">{{ user.lastLoginDate|timestamp('short') }}</span>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% else %}
+    <p>{{ message }}</p>
+{% endif %}

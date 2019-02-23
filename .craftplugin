@@ -1,0 +1,27 @@
+{
+  "pluginName": "Activeusers",
+  "pluginDescription": "A widget showing active Users",
+  "pluginVersion": "1.0.0",
+  "pluginAuthorName": "vardump.de",
+  "pluginVendorName": "vardump.de",
+  "pluginAuthorUrl": "https://vardump.de",
+  "pluginAuthorGithub": "vardump-de",
+  "codeComments": "",
+  "pluginComponents": [
+    "widgets"
+    ,"user"
+  ],
+  "consolecommandName": "",
+  "controllerName": "",
+  "cpsectionName": "",
+  "elementName": "",
+  "fieldName": "",
+  "modelName": "",
+  "purchasableName": "",
+  "recordName": "",
+  "serviceName": "",
+  "taskName": "",
+  "utilityName": "",
+  "widgetName": "activeusers",
+  "apiVersion": "api_version_3_0"
+}
