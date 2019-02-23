@@ -24,7 +24,7 @@ To install the plugin, follow these instructions.
 
 Go to the Dashboard and add a Activeusers Widget. 
 
-You can define a message which is shwon if you are the only one online. 
+You can define a message which is shown if you are the only one online. 
 
 
 ![Screenshot](resources/img/plugin-logo.png)
