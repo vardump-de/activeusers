@@ -121,20 +121,22 @@ class ActiveusersWidget extends Widget
         $pastTime = $expire->sub($interval);
 
         $userIds = (new Query())
-            ->select('userid')
+            ->select('userid, dateUpdated')
             ->distinct()
             ->from([Table::SESSIONS])
             ->where(['and', ['>', 'dateUpdated', Db::prepareDateForDb($pastTime)],
                 ['not', ['userid' => $currentUserId]]])
             ->orderBy("dateUpdated DESC")
             ->limit(10)
-            ->column();
+            ->all();
 
         if (count($userIds)) {
-            foreach ($userIds as $userId) {
-                $user = Craft::$app->getUsers()->getUserById($userId);
+            foreach ($userIds as $item) {
+                $user = Craft::$app->getUsers()->getUserById($item['userid']);
+
                 if ($user) {
-                    $userData[] = $user;
+                    $userData[] = array('user' => $user,
+                        'dateUpdated' => DateTimeHelper::toDateTime($item['dateUpdated'])->getTimestamp());
                 }
             }
         }
@@ -148,6 +150,8 @@ class ActiveusersWidget extends Widget
                 'userData' => $userData,
                 'message' => $this->message,
                 'inactive' => $this->inactive,
+                'sessionTimeout' => $timeout,
+                'now' => DateTimeHelper::currentUTCDateTime()->getTimestamp()
             ]
         );
     }

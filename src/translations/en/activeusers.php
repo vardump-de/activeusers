@@ -19,5 +19,5 @@ return [
     'Message' => 'Message',
     'Message if nobody is logged in' => 'Message if nobody is logged in',
     'Inactive Time' => 'Inactive Time',
-    'Minutes after the user is assumed inactive' => 'How many minutes should the status of the user be inactive?'
+    'Minutes after the user is assumed inactive' => 'Minutes after the user is assumed inactive'
 ];

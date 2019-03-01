@@ -13,25 +13,25 @@
  */
 #}
 {% if (userData) %}
-    {% set now = "now"|date('U') %}
-
     <div class="activeusers_container">
         <table class="data fullwidth">
             <tbody>
             {% for user in userData %}
-                {% set lastLoginDate = user.lastLoginDate.timestamp %}
-                {% set inactiveTime = now - lastLoginDate %}
+                {% set inactiveTime = now - user.dateUpdated %}
                 {% set userStatus = 'live' %}
-                {% if inactiveTime > 60*inactive %}
+                {% if inactiveTime > 60 * inactive %}
                     {% set userStatus = 'pending' %}
                 {% endif %}
                 <tr>
                     <td>
                         <span class="status {{ userStatus }}"></span>
-                        {{ user.firstName }} {{ user.lastName }} <span
-                                class="light">({{ user.username }})</span></td>
+                        {{ user.user.firstName }} {{ user.user.lastName }} <span
+                                class="light">({{ user.user.username }})</span></td>
                     <td>
-                        <span class="light">{{ user.lastLoginDate|timestamp('short') }}</span>
+                        <span class="light">{{ user.dateUpdated|timestamp('short') }}</span>
+                    </td>
+                    <td>
+                        <span class="light">{{ user.user.lastLoginDate|timestamp('short') }}</span>
                     </td>
                 </tr>
             {% endfor %}
