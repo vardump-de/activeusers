@@ -17,5 +17,7 @@ return [
     'activeusers plugin loaded' => 'activeusers plugin loaded',
     'ActiveusersWidget' => 'Logged in user',
     'Message' => 'Message',
-    'Message if nobody is logged in' => 'Message if nobody is logged in'
+    'Message if nobody is logged in' => 'Message if nobody is logged in',
+    'Inactive Time' => 'Inactive Time',
+    'Minutes after the user is assumed inactive' => 'How many minutes should the status of the user be inactive?'
 ];

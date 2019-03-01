@@ -41,6 +41,11 @@ class ActiveusersWidget extends Widget
      */
     public $message = 'nobody out there :(';
 
+    /**
+     * @var integer
+     */
+    public $inactive = 30;
+
     // Static Methods
     // =========================================================================
 
@@ -82,6 +87,8 @@ class ActiveusersWidget extends Widget
             [
                 ['message', 'string'],
                 ['message', 'default', 'value' => 'nobody out there :('],
+                ['inactive', 'integer'],
+                ['inactive', 'default', 'value' => 30],
             ]
         );
         return $rules;
@@ -107,9 +114,9 @@ class ActiveusersWidget extends Widget
     {
         $userData = array();
         $currentUserId = Craft::$app->getUser()->getId();
-        
+
         $timeout = Craft::$app->getSession()->getTimeout();
-        $interval = DateInterval::createFromDateString($timeout.' seconds');
+        $interval = DateInterval::createFromDateString($timeout . ' seconds');
         $expire = DateTimeHelper::currentUTCDateTime();
         $pastTime = $expire->sub($interval);
 
@@ -117,17 +124,18 @@ class ActiveusersWidget extends Widget
             ->select('userid')
             ->distinct()
             ->from([Table::SESSIONS])
-            ->where(['and', ['>', 'dateUpdated', Db::prepareDateForDb($pastTime)] ,
-                            ['not', ['userid' => $currentUserId]] ])
+            ->where(['and', ['>', 'dateUpdated', Db::prepareDateForDb($pastTime)],
+                ['not', ['userid' => $currentUserId]]])
+            ->orderBy("dateUpdated DESC")
             ->limit(10)
             ->column();
 
         if (count($userIds)) {
-            foreach($userIds as $userId) {
-                    $user = Craft::$app->getUsers()->getUserById($userId);
-                    if ($user) {
-                        $userData[] = $user;
-                    }
+            foreach ($userIds as $userId) {
+                $user = Craft::$app->getUsers()->getUserById($userId);
+                if ($user) {
+                    $userData[] = $user;
+                }
             }
         }
 
@@ -138,7 +146,8 @@ class ActiveusersWidget extends Widget
             'activeusers/_components/widgets/ActiveusersWidget_body',
             [
                 'userData' => $userData,
-                'message' => $this->message
+                'message' => $this->message,
+                'inactive' => $this->inactive,
             ]
         );
     }

@@ -22,5 +22,16 @@
     instructions: 'Message if nobody is logged in'|t('activeusers'),
     id: 'message',
     name: 'message',
-    value: widget['message']})
-}}
+    value: widget['message']
+}) }}
+
+{{ forms.textField({
+    label: "Inactive Time"|t('activeusers'),
+    instructions: "Minutes after the user is assumed inactive"|t('activeusers'),
+    id: 'inactive',
+    name: 'inactive',
+    value: widget.inactive,
+    size: 3,
+    errors: widget.getErrors('inactive'),
+    required: true
+}) }}
