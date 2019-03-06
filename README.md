@@ -1,6 +1,8 @@
 # Activeusers plugin for Craft CMS 3.x
 
-A widget showing active users
+A widget showing active users.
+
+![Screenshot](resources/img/widget-screenshot.png)
 
 ## Requirements
 
@@ -24,7 +26,19 @@ To install the plugin, follow these instructions.
 
 Go to the Dashboard and add a Activeusers Widget. 
 
-You can define a message which is shown if you are the only one online. 
+You can define a message which is shown if you are the only one online and a time when the user is assumed inactive. 
+
+The widget shows 4 columns : 
+
+1. Indicator 
+   
+   green -> active
+   
+   orange -> assumed inactive
+
+2. User firstname, lastname and username
+3. Last activity time
+4. Login time   
 
 
 ![Screenshot](resources/img/plugin-logo.png)
