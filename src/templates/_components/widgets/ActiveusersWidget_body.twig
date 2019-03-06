@@ -23,8 +23,8 @@
                     {% set userStatus = 'pending' %}
                 {% endif %}
                 <tr>
+                    <td><span class="status {{ userStatus }}"></span></td>
                     <td>
-                        <span class="status {{ userStatus }}"></span>
                         {{ user.user.firstName }} {{ user.user.lastName }} <span
                                 class="light">({{ user.user.username }})</span></td>
                     <td>

@@ -15,7 +15,7 @@
  */
 return [
     'activeusers plugin loaded' => 'activeusers plugin loaded',
-    'ActiveusersWidget' => 'Logged in user',
+    'ActiveusersWidget' => 'Active users',
     'Message' => 'Message',
     'Message if nobody is logged in' => 'Message if nobody is logged in',
     'Inactive Time' => 'Inactive Time',

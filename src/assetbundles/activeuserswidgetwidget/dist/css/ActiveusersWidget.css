@@ -9,3 +9,6 @@
  * @package   Activeusers
  * @since     1.0.0
  */
+.activeusers_container .light {
+    white-space: nowrap;
+}

@@ -19,5 +19,6 @@ return [
     'Message' => 'Nachricht',
     'Message if nobody is logged in' => 'Nachricht, wenn niemand eingeloggt ist',
     'Inactive Time' => 'Inaktive Zeit',
-    'Minutes after the user is assumed inactive' => 'Minuten ab wann der User als inaktiv angezeigt werden soll'
+    'Minutes after the user is assumed inactive' => 'Minuten ab wann der User als inaktiv angezeigt werden soll',
+    'minutes' => 'Minuten'
 ];
