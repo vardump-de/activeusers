@@ -102,7 +102,8 @@ class ActiveusersWidget extends Widget
         return Craft::$app->getView()->renderTemplate(
             'activeusers/_components/widgets/ActiveusersWidget_settings',
             [
-                'widget' => $this
+                'widget' => $this,
+                'sessionTimeout' => Craft::$app->getSession()->getTimeout()
             ]
         );
     }
