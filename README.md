@@ -26,7 +26,7 @@ To install the plugin, follow these instructions.
 
 Go to the Dashboard and add a Activeusers Widget. 
 
-You can define a message which is shown if you are the only one online and a time when the user is assumed inactive. 
+Configure the widget to your needs. Its self explaining ;) 
 
 The widget shows 4 columns : 
 

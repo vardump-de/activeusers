@@ -46,6 +46,16 @@ class ActiveusersWidget extends Widget
      */
     public $inactive = 30;
 
+    /**
+     * @var integer
+     */
+    public $limit = 10;
+
+    /**
+     * @var integer
+     */
+    public $maxheight = 0;
+
     // Static Methods
     // =========================================================================
 
@@ -89,6 +99,10 @@ class ActiveusersWidget extends Widget
                 ['message', 'default', 'value' => 'nobody out there :('],
                 ['inactive', 'integer'],
                 ['inactive', 'default', 'value' => 30],
+                ['limit', 'integer'],
+                ['limit', 'default', 'value' => 10],
+                ['maxheight', 'integer'],
+                ['maxheight', 'default', 'value' => 0]
             ]
         );
         return $rules;
@@ -128,7 +142,7 @@ class ActiveusersWidget extends Widget
             ->where(['and', ['>', 'dateUpdated', Db::prepareDateForDb($pastTime)],
                 ['not', ['userid' => $currentUserId]]])
             ->orderBy("dateUpdated DESC")
-            ->limit(10)
+            ->limit($this->limit)
             ->all();
 
         if (count($userIds)) {
@@ -151,6 +165,7 @@ class ActiveusersWidget extends Widget
                 'userData' => $userData,
                 'message' => $this->message,
                 'inactive' => $this->inactive,
+                'maxheight' => $this->maxheight,
                 'sessionTimeout' => $timeout,
                 'now' => DateTimeHelper::currentUTCDateTime()->getTimestamp()
             ]

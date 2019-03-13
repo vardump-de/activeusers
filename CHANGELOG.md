@@ -7,3 +7,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## 1.0.0 - 2019-02-22
 ### Added
 - Initial release
+
+## Unreleased
+### Added
+- new setting for the number of shown users
+- new setting to set a max height for the widget content. if set a scrollbar will be shown. 

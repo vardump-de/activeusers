@@ -18,13 +18,15 @@
 {% do view.registerAssetBundle("\\vardump\\activeusers\\assetbundles\\activeuserswidgetwidget\\ActiveusersWidgetWidgetAsset") %}
 
 {{ forms.textField({
-    label: 'Message'|t('activeusers'),
-    instructions: 'Message if nobody is logged in'|t('activeusers'),
-    id: 'message',
-    name: 'message',
-    value: widget['message']
+    label: "User limit"|t('activeusers'),
+    instructions: "Max. shown user"|t('activeusers'),
+    id: 'limit',
+    name: 'limit',
+    value: widget.limit,
+    size: 3,
+    errors: widget.getErrors('limit'),
+    required: true
 }) }}
-
 {{ forms.textField({
     label: "Inactive Time"|t('activeusers'),
     instructions: "Minutes after the user is assumed inactive"|t('activeusers'),
@@ -36,3 +38,19 @@
     required: true
 }) }}
 <span class="light"> Session timeout: {{ sessionTimeout / 60 }} {{  "minutes"|t('activeusers') }}</span>
+<hr>
+{{ forms.textField({
+    label: 'Message'|t('activeusers'),
+    instructions: 'Message if nobody is logged in'|t('activeusers'),
+    id: 'message',
+    name: 'message',
+    value: widget['message']
+}) }}
+{{ forms.textField({
+    label: 'Max. content height in px'|t('activeusers'),
+    instructions: 'A scrollbar is added if the content height exceeds the height set (0 = unlimited)'|t('activeusers'),
+    id: 'maxheight',
+    name: 'maxheight',
+    value: widget['maxheight'],
+    size: 3,
+}) }}

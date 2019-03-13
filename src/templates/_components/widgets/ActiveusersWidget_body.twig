@@ -13,7 +13,7 @@
  */
 #}
 {% if (userData) %}
-    <div class="activeusers_container">
+    <div class="activeusers_container" {% if maxheight > 0 %}style="max-height:{{ maxheight }}px;overflow:auto;"{% endif %}>
         <table class="data fullwidth">
             <tbody>
             {% for user in userData %}
