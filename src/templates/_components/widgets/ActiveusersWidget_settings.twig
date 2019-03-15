@@ -40,6 +40,21 @@
 <span class="light"> Session timeout: {{ sessionTimeout / 60 }} {{  "minutes"|t('activeusers') }}</span>
 <hr>
 {{ forms.textField({
+    label: 'User link'|t('activeusers'),
+    instructions: 'Link for the users. You can use the {{ user }} object'|t('activeusers'),
+    id: 'userlink',
+    name: 'userlink',
+    value: widget['userlink']
+}) }}
+{{ forms.textField({
+    label: 'Link target'|t('activeusers'),
+    instructions: 'ex. _blank for new window'|t('activeusers'),
+    id: 'linktarget',
+    name: 'linktarget',
+    value: widget['linktarget']
+}) }}
+<hr>
+{{ forms.textField({
     label: 'Message'|t('activeusers'),
     instructions: 'Message if nobody is logged in'|t('activeusers'),
     id: 'message',

@@ -24,5 +24,9 @@ return [
     'User limit' => 'User limit',
     'Max. shown user' => 'Max. shown user',
     'Max. content height in px' => 'Max. content height in px',
-    'A scrollbar is added if the content height exceeds the height set (0 = unlimited)' => 'A scrollbar is added if the content height exceeds the height set (0 = unlimited)'
+    'A scrollbar is added if the content height exceeds the height set (0 = unlimited)' => 'A scrollbar is added if the content height exceeds the height set (0 = unlimited)',
+    'User link' => 'User link',
+    'Link for the users. You can use the {{ user }} object' => 'Link for the users. You can use the {{ user }} object',
+    'Link target' => 'Link target',
+    'ex. _blank for new window' => 'ex. _blank for new window'
 ];

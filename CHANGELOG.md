@@ -11,4 +11,5 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/) and this p
 ## Unreleased
 ### Added
 - new setting for the number of shown users
-- new setting to set a max height for the widget content. if set a scrollbar will be shown. 
+- new setting to set a max height for the widget content. if set a scrollbar will be shown.
+- new setting to link users and link target 

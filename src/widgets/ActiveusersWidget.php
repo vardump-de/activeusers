@@ -56,6 +56,16 @@ class ActiveusersWidget extends Widget
      */
     public $maxheight = 0;
 
+    /**
+     * @var string userlink
+     */
+    public $userlink = '/admin/users/{{user.id}}';
+
+    /**
+     * @var string userlink
+     */
+    public $linktarget = '';
+
     // Static Methods
     // =========================================================================
 
@@ -102,7 +112,11 @@ class ActiveusersWidget extends Widget
                 ['limit', 'integer'],
                 ['limit', 'default', 'value' => 10],
                 ['maxheight', 'integer'],
-                ['maxheight', 'default', 'value' => 0]
+                ['maxheight', 'default', 'value' => 0],
+                ['userlink', 'string'],
+                ['userlink', 'default', 'value' => '/admin/users/{{user.id}}'],
+                ['linktarget', 'string'],
+                ['linktarget', 'default', 'value' => '']
             ]
         );
         return $rules;
@@ -151,7 +165,9 @@ class ActiveusersWidget extends Widget
 
                 if ($user) {
                     $userData[] = array('user' => $user,
-                        'dateUpdated' => DateTimeHelper::toDateTime($item['dateUpdated'])->getTimestamp());
+                        'dateUpdated' => DateTimeHelper::toDateTime($item['dateUpdated'])->getTimestamp(),
+                        'link' =>  $this->parseUserLinkUrl( $this->userlink, array( 'user' => $user))
+                    );
                 }
             }
         }
@@ -167,8 +183,21 @@ class ActiveusersWidget extends Widget
                 'inactive' => $this->inactive,
                 'maxheight' => $this->maxheight,
                 'sessionTimeout' => $timeout,
+                'linktarget' => $this->linktarget,
                 'now' => DateTimeHelper::currentUTCDateTime()->getTimestamp()
             ]
         );
+    }
+
+    /**
+     * @param string $string
+     * @param array $vars
+     *
+     * @return string
+     */
+    protected function parseUserLinkUrl($string, $vars = array())
+    {
+        $parsed = Craft::$app->view->renderString($string, $vars);
+        return $parsed;
     }
 }
