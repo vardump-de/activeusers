@@ -2,7 +2,7 @@
     "name": "vardump/activeusers",
     "description": "A widget showing active users",
     "type": "craft-plugin",
-    "version": "1.0.0",
+    "version": "1.1.1",
     "keywords": [
         "craft",
         "cms",

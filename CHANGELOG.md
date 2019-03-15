@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## 1.1.0 - 2019-03-15
+## 1.1.1 - 2019-03-15
 ### Added
 - new setting for the number of shown users [#1](https://github.com/vardump-de/activeusers/issues/1)
 - new setting to set a max height for the widget content. if set a scrollbar will be shown.
