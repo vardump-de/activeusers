@@ -61,7 +61,7 @@ class ActiveusersWidget extends Widget
     /**
      * @inheritdoc
      */
-    public static function iconPath()
+    public static function icon(): ?string
     {
         return Craft::getAlias("@vardump/activeusers/assetbundles/activeuserswidgetwidget/dist/img/ActiveusersWidget-icon.svg");
     }
