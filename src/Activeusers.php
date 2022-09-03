@@ -1,11 +1,11 @@
 <?php
 /**
- * activeusers plugin for Craft CMS 3.x
+ * activeusers plugin for Craft CMS 4.x
  *
  * A widget showing active Users
  *
  * @link      https://vardump.de
- * @copyright Copyright (c) 2019 vardump.de
+ * @copyright Copyright (c) 2019-2022 vardump.de
  */
 
 namespace vardump\activeusers;
@@ -14,8 +14,6 @@ use vardump\activeusers\widgets\ActiveusersWidget as ActiveusersWidgetWidget;
 
 use Craft;
 use craft\base\Plugin;
-use craft\services\Plugins;
-use craft\events\PluginEvent;
 use craft\services\Dashboard;
 use craft\events\RegisterComponentTypesEvent;
 
@@ -31,24 +29,12 @@ use yii\base\Event;
  */
 class Activeusers extends Plugin
 {
-    // Static Properties
-    // =========================================================================
-
-    /**
-     * @var Activeusers
-     */
-    public static $plugin;
-
-    // Public Properties
-    // =========================================================================
+    public static Activeusers $plugin;
 
     /**
      * @var string
      */
     public $schemaVersion = '1.0.0';
-
-    // Public Methods
-    // =========================================================================
 
     /**
      * @inheritdoc
@@ -75,8 +61,4 @@ class Activeusers extends Plugin
             __METHOD__
         );
     }
-
-    // Protected Methods
-    // =========================================================================
-
 }

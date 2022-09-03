@@ -1,4 +1,4 @@
-# Activeusers plugin for Craft CMS 3.x
+# Activeusers plugin for Craft CMS 4.x
 
 A widget showing active users.
 
@@ -6,7 +6,7 @@ A widget showing active users.
 
 ## Requirements
 
-This plugin requires Craft CMS 3.0 or later.
+This plugin requires Craft CMS 4.0 or later.
 
 ## Installation
 

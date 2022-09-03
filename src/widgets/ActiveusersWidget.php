@@ -1,17 +1,16 @@
 <?php
 /**
- * activeusers plugin for Craft CMS 3.x
+ * activeusers plugin for Craft CMS 4.x
  *
  * A widget showing active Users
  *
  * @link      https://vardump.de
- * @copyright Copyright (c) 2019 vardump.de
+ * @copyright Copyright (c) 2019-2022 vardump.de
  */
 
 namespace vardump\activeusers\widgets;
 
 use craft\db\Query;
-use vardump\activeusers\Activeusers;
 use vardump\activeusers\assetbundles\activeuserswidgetwidget\ActiveusersWidgetWidgetAsset;
 
 use Craft;
@@ -36,35 +35,17 @@ class ActiveusersWidget extends Widget
     // Public Properties
     // =========================================================================
 
-    /**
-     * @var string
-     */
-    public $message = 'nobody out there :(';
+    public string $message = 'nobody out there :(';
 
-    /**
-     * @var integer
-     */
-    public $inactive = 30;
+    public int $inactive = 30;
 
-    /**
-     * @var integer
-     */
-    public $limit = 10;
+    public int $limit = 10;
 
-    /**
-     * @var integer
-     */
-    public $maxheight = 0;
+    public int $maxheight = 0;
 
-    /**
-     * @var string userlink
-     */
-    public $userlink = '/admin/users/{{user.id}}';
+    public string $userlink = '/admin/users/{{user.id}}';
 
-    /**
-     * @var string userlink
-     */
-    public $linktarget = '';
+    public string $linktarget = '';
 
     // Static Methods
     // =========================================================================
@@ -88,7 +69,7 @@ class ActiveusersWidget extends Widget
     /**
      * @inheritdoc
      */
-    public static function maxColspan()
+    public static function maxColspan(): ?int
     {
         return null;
     }
@@ -99,10 +80,10 @@ class ActiveusersWidget extends Widget
     /**
      * @inheritdoc
      */
-    public function rules()
+    public function rules(): array
     {
         $rules = parent::rules();
-        $rules = array_merge(
+        return array_merge(
             $rules,
             [
                 ['message', 'string'],
@@ -119,13 +100,12 @@ class ActiveusersWidget extends Widget
                 ['linktarget', 'default', 'value' => '']
             ]
         );
-        return $rules;
     }
 
     /**
      * @inheritdoc
      */
-    public function getSettingsHtml()
+    public function getSettingsHtml(): ?string
     {
         return Craft::$app->getView()->renderTemplate(
             'activeusers/_components/widgets/ActiveusersWidget_settings',
@@ -139,7 +119,7 @@ class ActiveusersWidget extends Widget
     /**
      * @inheritdoc
      */
-    public function getBodyHtml()
+    public function getBodyHtml(): ?string
     {
         $userData = array();
         $currentUserId = Craft::$app->getUser()->getId();
@@ -189,15 +169,8 @@ class ActiveusersWidget extends Widget
         );
     }
 
-    /**
-     * @param string $string
-     * @param array $vars
-     *
-     * @return string
-     */
-    protected function parseUserLinkUrl($string, $vars = array())
+    protected function parseUserLinkUrl(string $string, array $vars = array()): string
     {
-        $parsed = Craft::$app->view->renderString($string, $vars);
-        return $parsed;
+        return Craft::$app->view->renderString($string, $vars);
     }
 }

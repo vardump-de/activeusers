@@ -1,16 +1,15 @@
 <?php
 /**
- * activeusers plugin for Craft CMS 3.x
+ * activeusers plugin for Craft CMS 4.x
  *
  * A widget showing active Users
  *
  * @link      https://vardump.de
- * @copyright Copyright (c) 2019 vardump.de
+ * @copyright Copyright (c) 2019-2022 vardump.de
  */
 
 namespace vardump\activeusers\assetbundles\activeuserswidgetwidget;
 
-use Craft;
 use craft\web\AssetBundle;
 use craft\web\assets\cp\CpAsset;
 
