@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/) and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## 2.0.0 - 2022-12-07
+### Changed
+- Craft CMS 4.x Version
+
 ## 1.1.1 - 2019-03-15
 ### Added
 - new setting for the number of shown users [#1](https://github.com/vardump-de/activeusers/issues/1)
