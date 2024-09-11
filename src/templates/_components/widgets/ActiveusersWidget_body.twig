@@ -28,7 +28,17 @@
                         {%  if user.link %}<a href="{{ user.link }}" {% if linktarget %}target="{{ linktarget }}"{% endif %} > {% endif %}
                         {{ user.user.firstName }} {{ user.user.lastName }}
                         {%  if user.link %}</a>{% endif %}
-                        <span class="light">({{ user.user.username }})</span></td>
+                        <span class="light">({{ user.user.username }})</span>
+                    </td>
+                    {% if user.userGroups %}
+                    <td>
+                        <span>
+                        {% for group in user.userGroups %}
+                            {{ group.name }}
+                        {% endfor %}
+                        </span>
+                    </td>
+                    {% endif %}
                     <td>
                         <span class="light">{{ user.dateUpdated|timestamp('short') }}</span>
                     </td>

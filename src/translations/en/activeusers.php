@@ -28,5 +28,6 @@ return [
     'User link' => 'User link',
     'Link for the users. You can use the {{ user }} object' => 'Link for the users. You can use the {{ user }} object',
     'Link target' => 'Link target',
-    'ex. _blank for new window' => 'ex. _blank for new window'
+    'ex. _blank for new window' => 'ex. _blank for new window',
+    'Show user groups' => 'Show user groups'
 ];

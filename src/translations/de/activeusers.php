@@ -28,5 +28,6 @@ return [
     'User link' => 'Verlinkung',
     'Link for the users. You can use the {{ user }} object' => 'Link zum Benutzer. Du kannst das {{ user }} Objekt benutzen.',
     'Link target' => 'Link Ziel',
-    'ex. _blank for new window' => 'z.B. _blank für ein neues Fenster'
+    'ex. _blank for new window' => 'z.B. _blank für ein neues Fenster',
+    'Show user groups' => 'Benutzergruppen zeigen',
 ];

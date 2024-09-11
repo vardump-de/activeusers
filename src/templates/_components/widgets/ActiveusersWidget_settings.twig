@@ -27,6 +27,16 @@
     errors: widget.getErrors('limit'),
     required: true
 }) }}
+{{ forms.checkboxField({
+    label: "Show user groups"|t('activeusers'),
+    instructions: "",
+    id: 'showGroups',
+    name: 'showGroups',
+    value: true,
+    errors: widget.getErrors('showGroups'),
+    required: false,
+    checked: widget.showGroups
+}) }}
 {{ forms.textField({
     label: "Inactive Time"|t('activeusers'),
     instructions: "Minutes after the user is assumed inactive"|t('activeusers'),

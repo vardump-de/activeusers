@@ -47,6 +47,8 @@ class ActiveusersWidget extends Widget
 
     public string $linktarget = '';
 
+    public bool $showGroups = false;
+
     // Static Methods
     // =========================================================================
 
@@ -97,7 +99,9 @@ class ActiveusersWidget extends Widget
                 ['userlink', 'string'],
                 ['userlink', 'default', 'value' => '/admin/users/{{user.id}}'],
                 ['linktarget', 'string'],
-                ['linktarget', 'default', 'value' => '']
+                ['linktarget', 'default', 'value' => ''],
+                ['showGroups', 'boolean'],
+                ['showGroups', 'default', 'value' => false],
             ]
         );
     }
@@ -144,9 +148,15 @@ class ActiveusersWidget extends Widget
                 $user = Craft::$app->getUsers()->getUserById($item['userid']);
 
                 if ($user) {
-                    $userData[] = array('user' => $user,
+                    $userGroups = null;
+                    if ($this->showGroups) {
+                        $userGroups = $user->getGroups();
+                    }
+                    $userData[] = array(
+                        'user' => $user,
                         'dateUpdated' => DateTimeHelper::toDateTime($item['dateUpdated'])->getTimestamp(),
-                        'link' =>  $this->parseUserLinkUrl( $this->userlink, array( 'user' => $user))
+                        'link' => $this->parseUserLinkUrl($this->userlink, array('user' => $user)),
+                        'userGroups' => $userGroups
                     );
                 }
             }
