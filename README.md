@@ -1,4 +1,4 @@
-# Activeusers plugin for Craft CMS 4.x
+# Activeusers plugin for Craft CMS 5.x
 
 A widget showing active users.
 
@@ -6,7 +6,7 @@ A widget showing active users.
 
 ## Requirements
 
-This plugin requires Craft CMS 4.0 or later.
+This plugin requires Craft CMS 5.0 or later.
 
 ## Installation
 
@@ -28,7 +28,7 @@ Go to the Dashboard and add a Activeusers Widget.
 
 Configure the widget to your needs. Its self explaining ;) 
 
-The widget shows 4 columns : 
+The widget shows 4/5 columns : 
 
 1. Indicator 
    
@@ -37,8 +37,9 @@ The widget shows 4 columns :
    orange -> assumed inactive
 
 2. User firstname, lastname and username
-3. Last activity time
-4. Login time   
+3. User groups (if configured)
+4. Last activity time
+5. Login time   
 
 
 ![Screenshot](resources/img/plugin-logo.png)
